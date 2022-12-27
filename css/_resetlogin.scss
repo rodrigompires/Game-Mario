@@ -1,0 +1,28 @@
+// FONTE DO MARIO
+// --------------------------------------------------------------------------------------------------------------
+
+@font-face {
+    font-family: 'Mario';
+    src: url(../font/Super-Mario-World.ttf) format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Mario Menu';
+    src: url(../font/Chlorinp.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Mario S';
+    src: url(../font/SuperMario256.ttf) format('truetype');
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Mario S';
+}

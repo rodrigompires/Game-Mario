@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Game Mario">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Rodrigo Pires">
+  <link rel="stylesheet" href="../css/gameboy.css">
+  <script defer src="../js/mario.js"></script>
+  
+  <title>Game Mario</title>
+</head>
+
+<body>
+  <main class="gameboy" id="GameBoy">
+
+    <div class="screen-area">
+
+      <div class="power" id="power">
+        <div class="indicator">
+          <div class="led"></div>
+          <span class="arc" style="z-index:2"></span>
+          <span class="arc" style="z-index:1"></span>
+          <span class="arc" style="z-index:0"></span>
+        </div>
+        POWER
+      </div>
+
+      <div class="display" id="mainCanvas">
+        <div class="display__loader">
+          <div class="display__final">
+            <div class="display__name">
+              <a href="https://github.com/rodrigompires" class="display__link">
+                <span class="display__text--r letter">R</span>
+                <span class="display__text--o letter">O</span>
+                <span class="display__text--d letter">D</span>
+                <span class="display__text--r letter">R</span>
+                <span class="display__text--i letter">I</span>
+                <span class="display__text--g letter">G</span>
+                <span class="display__text--o letter">O</span>
+              </a>  
+            </div>
+            <a href="https://github.com/rodrigompires" class="display__link">
+              <div class="display__sname">
+                <span class="display__text--p letter">P</span>
+                <span class="display__text--i letter">I</span>
+                <span class="display__text--r letter">R</span>
+                <span class="display__text--e letter">E</span>
+                <span class="display__text--s letter">S</span>
+              </div>
+            </a>
+         </div>
+
+          <!-- <a href="#" class="display__neon5">rodrigo pires developer</a> -->
+        </div>
+        <div class="display__board">
+
+          <div class="display__score">
+              <img src="../images/close.gif" alt="icon X close" class="display__close">
+              <span class="display__titles">Name:<span class="display__username"></span></span>
+              <span class="display__titles">Attempts:<span class="display__attempts"></span></span>
+              <span class="display__titles">Victories:<span class="display__victories"></span></span>
+              <span class="display__titles">Defeats:<span class="display__defeats"></span></span>
+          </div>
+
+
+          <div class="display__salutation">Welcome!
+            Also use: <br>
+            Delete = On/Off <br>
+            Enter = Start<br>
+            1 = Item <br>
+            2 = Jump <br>
+            3 = Jump <br>
+            Try to save the princess<br>
+            There are 2 endings
+            <br>Good luck! 😀</div>
+          <img src="../images/clouds.png" alt="clouds" class="display__clouds">
+          <img src="../images/clouds.png" alt="clouds" class="display__clouds2">
+          <img src="../images/clouds.png" alt="clouds" class="display__clouds3">
+          <img src="../images/block.gif" alt="block ?" class="display__blocki">
+          <img src="../images/b4.gif" alt="enemy" class="display__enemy">
+          <img src="../images/goomba.gif" alt="enemy" class="display__goomba">
+          <img src="../images/koppa.gif" alt="" class="display__koppa">
+          <img src="../images/coin.png" alt="clouds" class="display__coin">
+          <img src="../images/on.png" alt="bloco on" class="display__on">
+          <img src="../images/off.png" alt="bloco on" class="display__off">
+          <img src="../images/mario.gif" alt="mario" class="display__mario">
+          <img src="../images/obj1.png" alt="enemies" class="display__obj">
+          <img src="../images/poste.svg" alt="gate" class="display__gate">
+          <div class="display__item"></div>
+          <div class="display__gold">100</div>
+          <img src="../images/flower.png" alt="flower" class="display__flower">
+          <img src="../images/princess.png" alt="princess" class="display__princess">
+          <img src="../images/eu.svg" alt="minha foto" class="display__photo">
+          <img src="../images/fogos.gif" alt="fireworks" class="display__fireworks">  
+          <img src="../images/yoshi.gif" alt="yoshi" class="display__yoshi">       
+          <img src="../images/greenegg.gif" alt="egg yoshi" class="display__egg">     
+          <img src="../images/babymario.gif" alt="egg yoshi" class="display__babymario">
+          <img src="../images/Baby_Mario_Crying.gif" alt="egg yoshi" class="display__babymariocrying">
+          <img src="../images/trio.gif" alt="three ghosts" class="display__ghosts">
+          <img src="../images/star2.gif" alt="star" class="display__star">
+          <img src="../images/lightning2.gif" alt="lightning" class="display__lightning">
+          <img src="../images/volcano.gif" alt="volcano" class="display__volcano">
+          <img src="../images/storm.gif" alt="storm" class="display__storm">
+          <img src="../images/messagebox.svg" alt="message box" class="display__msg">
+        </div>
+      </div>
+
+      <div class="label">
+        <div class="title">GAME BOY</div>
+        <div class="subtitle">
+          <span class="c">C</span><!--
+       --><span class="o1">O</span><!--
+       --><span class="l">L</span><!--
+       --><span class="o2">O</span><!--
+       --><span class="r">R</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nintendo">Nintendo</div>
+
+    <div class="controls">
+      <div class="dpad">
+        <div class="up"><i class="fa fa-caret-up"></i></div>
+        <div class="right"><i class="fa fa-caret-right"></i></div>
+        <div class="down"><i class="fa fa-caret-down"></i></div>
+        <div class="left"><i class="fa fa-caret-left"></i></div>
+        <div class="middle"></div>
+      </div>
+      <div class="a-b">
+        <div class="b btn" id="b">B</div>
+        <div class="a btn" id="a">A</div>
+      </div>
+    </div>
+
+    <div class="start-select">
+      <div class="select" id="select">SELECT</div>
+      <div class="start" id="start">START</div>
+    </div>
+
+    <div class="speaker">
+      <div class="dot placeholder"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot placeholder"></div>
+
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+
+      <div class="dot placeholder"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot closed"></div>
+      <div class="dot open"></div>
+      <div class="dot placeholder"></div>
+    </div>
+
+  </main>
+
+
+</body>
+
+</html>
