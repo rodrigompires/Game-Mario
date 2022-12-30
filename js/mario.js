@@ -38,6 +38,8 @@ const $storm = document.querySelector(".display__storm");
 const $messageBlock = document.querySelector('.display__msg');
 const $modalScore = document.querySelector('.display__score');
 const $modalClose = document.querySelector('.display__close');
+// const $goldCoin = document.querySelector('.display__goldcoin');
+const $countDown = document.querySelector('.display__count');
 
 let $userName = document.querySelector(".display__username");
 let $attempts = document.querySelector(".display__attempts");
@@ -79,6 +81,7 @@ const audioFireworks = new Audio(
 const audioInitial = new Audio("../sounds/initial.mp3");
 const audioMessage = new Audio("../sounds/message_block.mp3");
 const audioClose = new Audio("../sounds/midway_gate.mp3");
+// const audioGoldCoin = new Audio("../sounds/goldcoin.mp3");
 
 // ------------------------------------------------------------------------------------------------------------
 
@@ -104,9 +107,26 @@ $power.addEventListener("click", () => {
 $start.addEventListener("click", start);
 
 function start() {
+  let i = 3;
+  let timer = setInterval(() => {
+    $countDown.innerHTML = i;
+    // audio.src = `../sounds/${i}.mp3`;
+    audio.src = `../sounds/countdown.mp3`;
+    audio.play();
+    if (i == 0) {
+      clearInterval(timer)
+      $countDown.style.display = 'none';
+    }
+    i--
+  },1000)
 
-  $salutation.style.display = "none";
-  $messageBlock.style.display = "none";
+
+
+
+  setTimeout(() => {
+
+    $salutation.style.display = "none";
+    $messageBlock.style.display = "none";
   
   if (initial && $gameboy.classList.contains("on")) {
     audioTheme.pause();
@@ -117,6 +137,7 @@ function start() {
     $blockOff.classList.add("start");
     $blockI.classList.add("start");
     $star.classList.add("start");
+    // $goldCoin.classList.add("start");
 
     enemy();
     koppa();
@@ -148,6 +169,9 @@ function start() {
   } else {
     location.reload();
   }
+  }, 4000)
+
+  
 }
 
 // FUNCÕES DA PASSAGEM DE ALGUNS ITENS QUE NÃO IMPEDEM O ANDAR DO JOGO
@@ -251,7 +275,7 @@ $messageBlock.addEventListener('click', () => {
   audioMessage.play();
   $modalScore.classList.add("show");
 
-  const storage =  JSON.parse(localStorage.getItem('id'));
+  const storage =  JSON.parse(localStorage.getItem('superMario'));
   $userName.innerHTML = storage.name;
   $attempts.innerHTML = storage.attempt;
   $victories.innerHTML = storage.victorie;
@@ -306,6 +330,7 @@ const checkGameOver = setInterval(() => {
   let coinLeftPosition = $coin.offsetLeft;
   let blockOnLeftPosition = $blockOn.offsetLeft;
   let blockOffLeftPosition = $blockOff.offsetLeft;
+  // let goldCoinLeftPosition = $goldCoin.offsetLeft;
 
 
   // CONDIÇÃO DO BABY MARIO PARA INICIAR A ANIMAÇÃO E TROCA DE SRC E TOCAR O AUDIO - REFERE-SE Á FINAL ALTERNATIVA
@@ -318,7 +343,7 @@ const checkGameOver = setInterval(() => {
     audio.play();
   }
 
-  // CONDIÇÃO QUE VERIFICA SE O MARIO PEGOU A MOEDA
+  // CONDIÇÃO QUE VERIFICA SE O MARIO PEGOU A MOEDA DO YOSHI PARA A FINAL ALTERNATIVA
   // ---------------------------------------------------------------------------------------------------------
 
   if (coinLeftPosition >= 3 && coinLeftPosition <= 25 && marioPosition === 50) {
@@ -327,6 +352,16 @@ const checkGameOver = setInterval(() => {
     $gold.style.display = "block";
     yoshiOn = true;
   }
+
+  // CONDIÇÃO QUE VERIFICA SE O MARIO PEGOU A MOEDA DE OURO
+  // ---------------------------------------------------------------------------------------------------------
+
+  // if (goldCoinLeftPosition >= 3 && goldCoinLeftPosition <= 25 && marioPosition === 50) {
+  //   $goldCoin.style.animation = "none";
+  //   audioGoldCoin.play();
+  //   $goldCoin.style.display = "block";
+    
+  // }
 
   //CONDIÇÃO QUE ALTERA AS POSIÇÕES DA TELA
   // ---------------------------------------------------------------------------------------------------------
@@ -535,25 +570,25 @@ function captureKeys({ key }) {
   if (keyMapped) document.getElementById(mapKeyboard[_key]).click();
 }
 
-// INTERAÇÃO COM O USUÁRIO
+// INTERAÇÃO COM O USUÁRIO - ATUALIZA O SCORE E SALVA NO LOCALSTORAGE
 // -------------------------------------------------------------------------------------------------------------
 
 function score (derr) {
 
-  const data =  JSON.parse(localStorage.getItem('id'));
+  const data =  JSON.parse(localStorage.getItem('superMario'));
 
   if (derr) {
     data.defeat += 1;
     data.attempt += 1;
-    localStorage.setItem('id', JSON.stringify(data));
+    localStorage.setItem('superMario', JSON.stringify(data));
 
   } else {
     data.victorie += 1;
     data.attempt += 1;
-    localStorage.setItem('id', JSON.stringify(data));
+    localStorage.setItem('superMario', JSON.stringify(data));
   }
 
-    $userName.innerHTML = data.name
+    $userName.innerHTML = data.name;
     $attempts.innerHTML = data.attempt;
     $victories.innerHTML = data.victorie;
     $defeats.innerHTML = data.defeat;

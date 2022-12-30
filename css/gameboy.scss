@@ -506,7 +506,62 @@ body {
     }
 }
 
+// TRECHO REFERENTE A INDICAÇÃO DE CLICAR NO BOTÃO POWER
+// ----------------------------------------------------------------------------------------
+
+.tooltip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    left: 5%;
+    top: 15%;
+    font-size: .4rem;
+    font-family: Roboto;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    color: red;
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        margin: 5px;
+        box-shadow: 3px 3px 0;     
+        animation: tooltip;
+        animation-duration: .8s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+}
+
+// ------------------------------------------------------------------------------------------
+
 .display {
+
+    &__countdown {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;  
+    }
+
+    &__count {
+        font-size: 12rem !important;
+        color: red;
+
+    }
 
     &__salutation {
         text-align: center;
@@ -519,14 +574,8 @@ body {
         justify-content: center;
         margin-left: 25%;
         top: 25%;
-        // left: 50%;
-        // transform: translate(-50%);
         width: 50%;
-        height: auto;
-        // transform-style: preserve-3d;
-        // border: 1px solid red;
-        // transform: rotateY(180deg);
-        
+        height: auto;       
     }
 
     &__blocki {
@@ -799,6 +848,17 @@ body {
         animation: messageblock 1s ease-out infinite;
         cursor: pointer;
     }
+
+    // &__goldcoin {
+    //     position: absolute;
+    //     width: 12px;
+    //     right: -40px;
+    //     top: 70%;
+
+    //     &.start {
+    //         animation: coin 1.9s infinite linear;
+    //     }
+    // }
 
     // MODAL SCORE
     // ---------------------------------------------------------------------------------------------------------------
@@ -1391,3 +1451,20 @@ body {
         display: flex;
     }
 }
+
+@keyframes tooltip {
+    0% {
+        transform: translateY(0) rotate(45deg);
+
+    }
+
+    100% {
+        transform: translateY(50%) rotate(45deg);
+
+
+    }
+}
+
+
+
+

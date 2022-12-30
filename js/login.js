@@ -34,12 +34,12 @@ function submit (e) {
       defeat: defeat
     }
 
-    const user =  JSON.parse(localStorage.getItem('id')) ?? "";
+    const user =  JSON.parse(localStorage.getItem('superMario')) ?? "";
 
     if (user.name === $input.value) {
         window.location = 'pages/mario.html';
     } else {
-        localStorage.setItem('id', JSON.stringify(data));
+        localStorage.setItem('superMario', JSON.stringify(data));
     }
 
     window.location = 'pages/mario.html';
@@ -51,6 +51,7 @@ $input.addEventListener("input", validateInput);
 $form.addEventListener("submit", submit);
 
 $clear.addEventListener('click', () => {
-  localStorage.clear();
+  localStorage.removeItem('superMario');
+
 })
   

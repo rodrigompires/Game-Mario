@@ -434,6 +434,50 @@ body {
   background: green;
 }
 
+.tooltip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 5%;
+  top: 15%;
+  font-size: 0.4rem;
+  font-family: Roboto;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  color: red;
+}
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  margin: 5px;
+  box-shadow: 3px 3px 0;
+  animation: tooltip;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.display__countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display__count {
+  font-size: 12rem !important;
+  color: red;
+}
 .display__salutation {
   text-align: center;
   font-family: "Mario";
@@ -1109,5 +1153,13 @@ body {
     transform: translateY(0);
     opacity: 1;
     display: flex;
+  }
+}
+@keyframes tooltip {
+  0% {
+    transform: translateY(0) rotate(45deg);
+  }
+  100% {
+    transform: translateY(50%) rotate(45deg);
   }
 }/*# sourceMappingURL=gameboy.css.map */
